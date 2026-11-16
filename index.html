@@ -71,6 +71,25 @@
                     <td>15 minutos</td>
                 </tr>
             </table>
+
+            <h3>Comparação dos tempos de preparo</h3>
+
+<p>Tempo de preparo das receitas, em minutos.</p>
+
+<canvas
+    id="grafico-tempos"
+    width="600"
+    height="300"
+    role="img"
+    aria-label="Comparação dos tempos de preparo: bolo de chocolate, 45 minutos; panqueca caseira, 30 minutos; salada de frutas, 15 minutos."
+    style="max-width: 100%; height: auto;"
+>
+    Bolo de chocolate: 45 minutos.
+    Panqueca caseira: 30 minutos.
+    Salada de frutas: 15 minutos.
+    Os mesmos dados estão disponíveis na tabela acima.
+</canvas>
+
         </section>
         <section>
             <h2>Inspirações Culinárias</h2>
@@ -80,6 +99,56 @@
                 <a href="https://www.tudogostoso.com.br/" target="_blank" rel="noopener noreferrer">site
                     .Tudogostoso</a>
             </p>
+
+            <!--
+    SVG verificado com zoom e redimensionamento da janela:
+    o selo permanece nítido e mantém suas proporções.
+-->
+            <svg
+    viewBox="0 0 240 64"
+    width="240"
+    height="64"
+    role="img"
+    aria-labelledby="titulo-selo"
+    style="display: block; max-width: 100%; height: auto;"
+>
+    <title id="titulo-selo">Receita testada</title>
+
+    <rect
+        x="2"
+        y="2"
+        width="236"
+        height="60"
+        rx="12"
+        fill="#276749"
+    />
+
+    <circle
+        cx="34"
+        cy="32"
+        r="20"
+        fill="#FFFFFF"
+    />
+
+    <path
+        d="M 24 32 L 31 39 L 44 25"
+        fill="none"
+        stroke="#276749"
+        stroke-width="4"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+    />
+
+    <text
+        x="65"
+        y="39"
+        font-family="Arial, sans-serif"
+        font-size="20"
+        fill="#FFFFFF"
+    >
+        Receita testada
+    </text>
+</svg>
 
             <img src="assets/images/Bolo-de-chocolate.png" alt="Bolo de Chocolate" width="350" height="200">
         </section>
@@ -133,6 +202,59 @@
     <footer>
         <p>Desenvolvido por Marcelo B. Silva - Projeto Integrador de Desenvolvimento de Frontend.</p>
     </footer>
-</body>
+    <script>
+    const canvas = document.getElementById("grafico-tempos");
+    const ctx = canvas.getContext("2d");
 
+    const receitas = [
+        { nome: "Bolo de chocolate", tempo: 45, cor: "#805332" },
+        { nome: "Panqueca caseira", tempo: 30, cor: "#276749" },
+        { nome: "Salada de frutas", tempo: 15, cor: "#B54708" }
+    ];
+
+    let inicio = null;
+    const duracao = 1200;
+
+    function animarGrafico(agora) {
+        if (inicio === null) {
+            inicio = agora;
+        }
+
+        const progresso = Math.min((agora - inicio) / duracao, 1);
+
+        // Apaga o quadro anterior para evitar rastros.
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        ctx.font = "16px Arial";
+        ctx.textBaseline = "middle";
+
+        receitas.forEach(function (receita, indice) {
+            const y = 65 + indice * 80;
+            const largura = receita.tempo * 7 * progresso;
+
+            // Nome da receita.
+            ctx.fillStyle = "#222222";
+            ctx.fillText(receita.nome, 15, y);
+
+            // Barra proporcional ao tempo de preparo.
+            ctx.fillStyle = receita.cor;
+            ctx.fillRect(180, y - 15, largura, 30);
+
+            // Tempo de preparo ao lado da barra.
+            ctx.fillStyle = "#222222";
+            ctx.fillText(
+                receita.tempo + " min",
+                190 + largura,
+                y
+            );
+        });
+
+        if (progresso < 1) {
+            requestAnimationFrame(animarGrafico);
+        }
+    }
+
+    requestAnimationFrame(animarGrafico);
+</script>
+</body>
 </html>
