@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabores & Receitas</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 
 <body>
@@ -17,6 +20,7 @@
 
     <main>
         <section>
+            <section class="card">
             <h2>Sugira uma Receita</h2>
 
             <form>
@@ -35,11 +39,12 @@
                     <label for="tempo-Preparo">Tempo de Preparo em minutos:</label>
                     <input type="number" id="tempo-Preparo" name="tempo-Preparo" min="1" max="1440" required>
                 </fieldset>
-                <button type="submit">Enviar Sugestão</button>
+                <button type="submit" class="botao">Enviar Sugestão</button>
             </form>
         </section>
 
         <section>
+            <section class="card">
             <h2>Categorias de Receitas</h2>
 
             <ul>
@@ -51,6 +56,7 @@
         </section>
         <section>
 
+            <section class="card">
             <h2>Receita e tempo de preparo</h2>
 
             <table>
@@ -74,7 +80,7 @@
 
             <h3>Comparação dos tempos de preparo</h3>
 
-<p>Tempo de preparo das receitas, em minutos.</p>
+<p class="destaque">Tempo de preparo das receitas, em minutos.</p>
 
 <canvas
     id="grafico-tempos"
@@ -82,7 +88,7 @@
     height="300"
     role="img"
     aria-label="Comparação dos tempos de preparo: bolo de chocolate, 45 minutos; panqueca caseira, 30 minutos; salada de frutas, 15 minutos."
-    style="max-width: 100%; height: auto;"
+    
 >
     Bolo de chocolate: 45 minutos.
     Panqueca caseira: 30 minutos.
@@ -92,6 +98,7 @@
 
         </section>
         <section>
+            <section class="card">
             <h2>Inspirações Culinárias</h2>
 
             <p>
@@ -110,7 +117,7 @@
     height="64"
     role="img"
     aria-labelledby="titulo-selo"
-    style="display: block; max-width: 100%; height: auto;"
+    
 >
     <title id="titulo-selo">Receita testada</title>
 
@@ -154,10 +161,10 @@
         </section>
         
                    <section>
+                    <section class="card">
             <h2>Vídeo: preparo de bolo de chocolate</h2>
 
-            <p>Veja uma etapa do preparo de um bolo de chocolate.</p>
-
+            <p class="destaque">Veja uma etapa do preparo de um bolo de chocolate.</p>
             <!--
                 preload="metadata" sugere carregar apenas informações
                 básicas, como duração e dimensões, antes da reprodução.
