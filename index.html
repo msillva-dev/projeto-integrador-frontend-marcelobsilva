@@ -83,6 +83,52 @@
 
             <img src="assets/images/Bolo-de-chocolate.png" alt="Bolo de Chocolate" width="350" height="200">
         </section>
+        
+                   <section>
+            <h2>Vídeo: preparo de bolo de chocolate</h2>
+
+            <p>Veja uma etapa do preparo de um bolo de chocolate.</p>
+
+            <!--
+                preload="metadata" sugere carregar apenas informações
+                básicas, como duração e dimensões, antes da reprodução.
+                Isso permite conhecer os metadados sem solicitar
+                antecipadamente o vídeo inteiro.
+            -->
+            <video
+                controls
+                width="640"
+                preload="metadata"
+                poster="assets/images/Bolo-de-chocolate.png"
+            >
+                <!-- MP4 primeiro por priorizarmos compatibilidade.
+                     WebM oferece uma alternativa de formato. -->
+                <source
+                    src="assets/videos/preparo-bolo.mp4"
+                    type="video/mp4"
+                >
+                <source
+                    src="assets/videos/preparo-bolo.webm"
+                    type="video/webm"
+                >
+                
+                                <track
+                    kind="subtitles"
+                    src="assets/videos/preparo-bolo-pt.vtt"
+                    srclang="pt"
+                    label="Português"
+                    default
+                >
+
+                <p>
+                    Seu navegador não suporta vídeo HTML5.
+                    <a href="assets/videos/preparo-bolo.mp4">
+                        Baixe o vídeo.
+                    </a>
+                </p>
+            </video>
+        </section> 
+        
     </main>
     <footer>
         <p>Desenvolvido por Marcelo B. Silva - Projeto Integrador de Desenvolvimento de Frontend.</p>
