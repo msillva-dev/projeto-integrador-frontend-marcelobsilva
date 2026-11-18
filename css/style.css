@@ -240,3 +240,56 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Aula 07 - Menu principal com Flexbox */
+
+.menu-principal ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem 1rem;
+    margin: 1rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.menu-principal a,
+.menu-principal a:visited {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    color: var(--cor-card);
+    font-weight: bold;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
+.menu-principal a:hover,
+.menu-principal a:focus-visible {
+    background-color: var(--cor-fundo);
+    color: var(--cor-primaria);
+    border-radius: 0.25rem;
+}
+
+.menu-principal a:focus-visible {
+    outline: 2px solid var(--cor-card);
+    outline-offset: 3px;
+}
+
+.card .grade-receitas {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+.grade-receitas li {
+    margin: 0;
+    padding: 1rem;
+    background-color: var(--cor-fundo);
+    border: 1px solid var(--cor-borda);
+    border-radius: var(--raio);
+}
+
+.grade-receitas > li:first-child {
+    border-left: 4px solid var(--cor-destaque);
+}
