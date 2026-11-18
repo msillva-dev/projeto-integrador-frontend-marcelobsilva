@@ -1,0 +1,15 @@
+/* =========================================
+   RESET CSS - Sabores & Receitas
+   Aula 06 - Estilização Base
+   ========================================= */
+
+/* Padroniza o modelo de caixa e remove
+   os espaçamentos padrão do navegador. */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
