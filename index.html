@@ -12,20 +12,37 @@
 </head>
 
 <body>
-    <header>
-        <h1>Sabores & Receitas</h1>
-
-        <p>Um espaço para descobrir receitas deliciosas, práticas e fáceis de preparar em casa.</p>
-
+    <header class="cabecalho">
+    <div class="barra-navegacao">
+        <h1>Sabores &amp; Receitas</h1>
+<button
+    type="button"
+    class="botao-menu"
+    aria-label="Abrir menu principal"
+    aria-expanded="false"
+>
+    <span aria-hidden="true">☰</span>
+</button>
         <nav class="menu-principal" aria-label="Menu principal">
-            <ul>
-                <li><a href="#categorias">Categorias</a></li>
-                <li><a href="#tempos-preparo">Tempos de preparo</a></li>
-                <li><a href="#sugestao">Sugira uma receita</a></li>
-            </ul>
-        </nav>
+    <ul class="lista-menu">
+        <li class="item-com-submenu">
+            <a href="#categorias" class="ativo">Categorias</a>
 
-    </header>
+            <ul class="submenu">
+                <li><a href="#receitas-doces">Receitas doces</a></li>
+                <li><a href="#receitas-salgadas">Receitas salgadas</a></li>
+                <li><a href="#receitas-saudaveis">Receitas saudáveis</a></li>
+            </ul>
+        </li>
+        <li><a href="#tempos-preparo">Tempos de preparo</a></li>
+        <li><a href="#sugestao">Sugira uma receita</a></li>
+    </ul>
+</nav>
+        </nav>
+    </div>
+
+    <p>Um espaço para descobrir receitas deliciosas, práticas e fáceis de preparar em casa.</p>
+</header>
 
     <main>
             <section class="card">
@@ -55,10 +72,10 @@
             <h2 id="categorias">Categorias de Receitas</h2>
 
             <ul class="grade-receitas">
-                <li>Receitas doces</li>
-                <li>Receitas salgadas</li>
-                <li>Receitas saudáveis</li>
-            </ul>
+    <li id="receitas-doces">Receitas doces</li>
+    <li id="receitas-salgadas">Receitas salgadas</li>
+    <li id="receitas-saudaveis">Receitas saudáveis</li>
+</ul>
 
         </section>
 
