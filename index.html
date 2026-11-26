@@ -6,15 +6,47 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sabores & Receitas</title>
+    <link rel="icon" type="image/png" href="./assets/images/logo-sabores-receitas.png?v=2">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 
+    <style>
+        #lista-receitas-interativas li {
+            margin-block: 0.5rem;
+        }
+
+        #lista-receitas-interativas button {
+            margin-inline-start: 0.5rem;
+        }
+
+        #lista-receitas-interativas button[aria-pressed="true"] {
+            background: #234b37;
+            color: #fff;
+        }
+
+        #form-receita-interativa {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        #lista-receitas-interativas button:focus-visible,
+        #busca-receitas:focus-visible,
+        #form-receita-interativa :is(input, button):focus-visible {
+            outline: 3px solid #2255aa;
+            outline-offset: 3px;
+        }
+    </style>
 </head>
 
 <body>
     <header class="cabecalho">
     <div class="barra-navegacao">
-        <h1>Sabores &amp; Receitas</h1>
+        <h1>
+    <img src="./assets/images/logo-sabores-receitas.png"
+         alt="" width="48" height="48"
+         style="vertical-align: middle;">
+    Sabores &amp; Receitas
+</h1>
 <button
     type="button"
     class="botao-menu"
@@ -225,13 +257,31 @@
                 </p>
             </video>
         </section> 
-        
-        <section class="card" id="analise-receitas">
-    <h2>Análise do tempo de preparo das receitas</h2>
-    <p>Confira o tempo total e a classificação de cada receita.</p>
+        <section class="card" id="analise-receitas" aria-labelledby="titulo-analise-receitas">
+            <h2 id="titulo-analise-receitas">Análise do tempo de preparo das receitas</h2>
+            <p>Confira o tempo total e a classificação de cada receita.</p>
+            <div id="resultado"></div>
+        </section>
 
-    <div id="resultado"></div>
-</section>
+        <section class="card" aria-labelledby="titulo-receitas-interativas">
+            <h2 id="titulo-receitas-interativas">Explore as receitas</h2>
+            <label for="busca-receitas">Buscar receita pelo nome</label>
+            <input type="search" id="busca-receitas" placeholder="Ex.: Brigadeiro">
+
+            <p id="resumo-receitas-interativas" aria-live="polite"></p>
+            <ul id="lista-receitas-interativas"></ul>
+
+            <h3>Adicionar receita</h3>
+            <form id="form-receita-interativa">
+                <label for="nome-nova-receita">Nome</label>
+                <input id="nome-nova-receita" name="nome" type="text" required>
+                <label for="preparo-nova-receita">Preparo (minutos)</label>
+                <input id="preparo-nova-receita" name="preparo" type="number" min="1" step="1" required>
+                <label for="cozimento-nova-receita">Cozimento (minutos)</label>
+                <input id="cozimento-nova-receita" name="cozimento" type="number" min="0" step="1" value="0" required>
+                <button type="submit">Adicionar receita</button>
+            </form>
+        </section>
     </main>
     <footer>
         <p>Desenvolvido por Marcelo B. Silva - Projeto Integrador de Desenvolvimento de Frontend.</p>
