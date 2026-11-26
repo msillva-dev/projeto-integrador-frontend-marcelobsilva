@@ -9,6 +9,32 @@
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
 
+    <style>
+        #lista-receitas-interativas li {
+            margin-block: 0.5rem;
+        }
+
+        #lista-receitas-interativas button {
+            margin-inline-start: 0.5rem;
+        }
+
+        #lista-receitas-interativas button[aria-pressed="true"] {
+            background: #234b37;
+            color: #fff;
+        }
+
+        #form-receita-interativa {
+            display: grid;
+            gap: 0.5rem;
+        }
+
+        #lista-receitas-interativas button:focus-visible,
+        #busca-receitas:focus-visible,
+        #form-receita-interativa :is(input, button):focus-visible {
+            outline: 3px solid #2255aa;
+            outline-offset: 3px;
+        }
+    </style>
 </head>
 
 <body>
@@ -225,19 +251,31 @@
                 </p>
             </video>
         </section> 
-        <section class="card" aria-labelledby="titulo-analise-receitas">
-    <h2 id="titulo-analise-receitas">Tempo de preparo das receitas</h2>
-    <div id="resultado"></div>
-</section>
+        <section class="card" id="analise-receitas" aria-labelledby="titulo-analise-receitas">
+            <h2 id="titulo-analise-receitas">Análise do tempo de preparo das receitas</h2>
+            <p>Confira o tempo total e a classificação de cada receita.</p>
+            <div id="resultado"></div>
+        </section>
+
         <section class="card" aria-labelledby="titulo-receitas-interativas">
-    <h2 id="titulo-receitas-interativas">Explore as receitas</h2>
+            <h2 id="titulo-receitas-interativas">Explore as receitas</h2>
+            <label for="busca-receitas">Buscar receita pelo nome</label>
+            <input type="search" id="busca-receitas" placeholder="Ex.: Brigadeiro">
 
-    <label for="busca-receitas">Buscar receita pelo nome</label>
-    <input type="search" id="busca-receitas" placeholder="Ex.: Brigadeiro">
+            <p id="resumo-receitas-interativas" aria-live="polite"></p>
+            <ul id="lista-receitas-interativas"></ul>
 
-    <p id="resumo-receitas-interativas" aria-live="polite"></p>
-    <ul id="lista-receitas-interativas"></ul>
-</section>
+            <h3>Adicionar receita</h3>
+            <form id="form-receita-interativa">
+                <label for="nome-nova-receita">Nome</label>
+                <input id="nome-nova-receita" name="nome" type="text" required>
+                <label for="preparo-nova-receita">Preparo (minutos)</label>
+                <input id="preparo-nova-receita" name="preparo" type="number" min="1" step="1" required>
+                <label for="cozimento-nova-receita">Cozimento (minutos)</label>
+                <input id="cozimento-nova-receita" name="cozimento" type="number" min="0" step="1" value="0" required>
+                <button type="submit">Adicionar receita</button>
+            </form>
+        </section>
     </main>
     <footer>
         <p>Desenvolvido por Marcelo B. Silva - Projeto Integrador de Desenvolvimento de Frontend.</p>
