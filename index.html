@@ -225,7 +225,19 @@
                 </p>
             </video>
         </section> 
-        
+        <section class="card" aria-labelledby="titulo-analise-receitas">
+    <h2 id="titulo-analise-receitas">Tempo de preparo das receitas</h2>
+    <div id="resultado"></div>
+</section>
+        <section class="card" aria-labelledby="titulo-receitas-interativas">
+    <h2 id="titulo-receitas-interativas">Explore as receitas</h2>
+
+    <label for="busca-receitas">Buscar receita pelo nome</label>
+    <input type="search" id="busca-receitas" placeholder="Ex.: Brigadeiro">
+
+    <p id="resumo-receitas-interativas" aria-live="polite"></p>
+    <ul id="lista-receitas-interativas"></ul>
+</section>
     </main>
     <footer>
         <p>Desenvolvido por Marcelo B. Silva - Projeto Integrador de Desenvolvimento de Frontend.</p>
@@ -286,6 +298,6 @@
 </script>
 
 <script src="js/logica.js" defer></script>
-
+<script src="js/script.js" defer></script>
 </body>
 </html>
